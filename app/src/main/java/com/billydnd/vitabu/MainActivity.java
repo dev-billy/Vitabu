@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.books_recycler_view);
-        adapter = new KitabuAdapter();
+        adapter = new KitabuAdapter(getApplicationContext());
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setAdapter(adapter);
