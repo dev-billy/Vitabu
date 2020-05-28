@@ -10,8 +10,7 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="app_description">
-        This app is built primarily on development purposes.
-       \nBy Billy P Mkusu - BCS/0004/2018.\n\n
+        This app is built primarily on development purposes.\n
         It invokes a google books API with default search on books on programming.
         Have Fun as You preview our app.\n\n
 
