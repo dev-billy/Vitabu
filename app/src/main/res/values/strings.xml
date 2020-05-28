@@ -9,4 +9,17 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="app_description">
+        This app is built primarily on development purposes.
+       \nBy Billy P Mkusu - BCS/0004/2018.\n\n
+        It invokes a google books API with default search on books on programming.
+        Have Fun as You preview our app.\n\n
+
+        PS: Don\'t worry about registering or logging in at the moment, its just a mock step to show
+        how that particular situation could be handled \n\n
+        Make sure you provide a name of with more than 3 characters to be logged in
+        \n\n\n\n
+        Have Fun!!!
+
+    </string>
 </resources>

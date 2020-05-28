@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -34,15 +35,23 @@ import androidx.recyclerview.widget.RecyclerView;
  * Created by Billy on 5/27/2020.
  */
 public class KitabuAdapter extends RecyclerView.Adapter<KitabuAdapter.KitabuViewHolder> {
+
+
     public static class KitabuViewHolder extends RecyclerView.ViewHolder{
         LinearLayout containerView;
         TextView titleTextView,authorTextView,publishTextView;
+
+
+
         KitabuViewHolder(View view){
             super(view);
+
             containerView = view.findViewById(R.id.row_kitabu);
             titleTextView = view.findViewById(R.id.row_book_title);
             authorTextView = view.findViewById(R.id.row_book_author);
             publishTextView = view.findViewById(R.id.row_book_date);
+
+
 
             containerView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -53,9 +62,11 @@ public class KitabuAdapter extends RecyclerView.Adapter<KitabuAdapter.KitabuView
                     intent.putExtra("publishdate",current.getPublished_date());
                     intent.putExtra("description",current.getDescrption());
 
+
                     v.getContext().startActivity(intent);
                 }
             });
+           // progressBar.setVisibility(View.INVISIBLE);
 
         }
     }
@@ -63,12 +74,14 @@ public class KitabuAdapter extends RecyclerView.Adapter<KitabuAdapter.KitabuView
     private List<Kitabu> kitabu = new ArrayList<>();
     private RequestQueue requestQueue;
 
-    KitabuAdapter(Context context){
+    KitabuAdapter(Context context,ProgressBar progressBar){
         requestQueue = Volley.newRequestQueue(context);
-        loadData();
+        loadData(progressBar);
+
+
     }
 
-    public void loadData(){
+    public void loadData(final ProgressBar progressBar1){
         String url = "https://www.googleapis.com/books/v1/volumes?q=programming&key=AIzaSyCtpyPizdZeNvHWNdf1bkLI-3TxmvjtdIo";
         JsonObjectRequest request = new  JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -84,6 +97,7 @@ public class KitabuAdapter extends RecyclerView.Adapter<KitabuAdapter.KitabuView
                         String publishedDate = bookInfo.getString("publishedDate");
                         String description = bookInfo.getString("description");
                         kitabu.add(new Kitabu(bookTitle,author,publishedDate,description));
+                        progressBar1.setVisibility(View.GONE);
                         notifyDataSetChanged();
 
                     }
@@ -116,6 +130,10 @@ public class KitabuAdapter extends RecyclerView.Adapter<KitabuAdapter.KitabuView
         holder.authorTextView.setText(current.getAuthor());
         holder.publishTextView.setText(current.getPublished_date().substring(0,4));
         holder.containerView.setTag(current);
+
+
+
+
     }
 
     @Override

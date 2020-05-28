@@ -34,7 +34,7 @@
         android:layout_toRightOf="@id/book_icon"
         android:textSize="18sp"
         android:layout_below="@id/kitabu_name"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="5dp"
         android:padding="5dp"
         android:id="@+id/kitabu_publish"/>
@@ -54,9 +54,11 @@
         android:layout_below="@id/kitabu_description"
         android:background="@color/colorPrimary"
         android:layout_margin="30dp"
+        android:id="@+id/buy_book_btn"
         android:text="BUY BOOK"
         android:clickable="true"
         android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         android:textColor="@color/cardview_light_background"
         android:textSize="18dp"
         android:layout_height="wrap_content"/>
